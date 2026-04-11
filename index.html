@@ -7,6 +7,7 @@
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -14,7 +15,9 @@
       color: #1f2933;
       background: #f5f7f7;
     }
+
     a { text-decoration: none; }
+
     .hero {
       min-height: 100vh;
       display: flex;
@@ -22,26 +25,38 @@
       justify-content: center;
       text-align: center;
       padding: 4rem 1.5rem;
-      background:
-        linear-gradient(rgba(27, 55, 39, 0.55), rgba(27, 55, 39, 0.55)),
-        url('images/bg.jpg') center/cover no-repeat;
       color: white;
+
+      /* fallback color if image is missing */
+      background-color: #244b35;
+
+      /* your original hero look */
+      background-image:
+        linear-gradient(rgba(27, 55, 39, 0.55), rgba(27, 55, 39, 0.55)),
+        url("images/bg.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
+
     .hero-inner {
       max-width: 860px;
     }
+
     .hero h1 {
       font-size: clamp(2.3rem, 6vw, 4.8rem);
       letter-spacing: 0.06em;
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
+
     .hero p {
       font-size: 1.15rem;
       max-width: 720px;
       margin: 0 auto 2rem;
       color: rgba(255,255,255,0.9);
     }
+
     .button {
       display: inline-block;
       padding: 0.95rem 1.6rem;
@@ -51,29 +66,40 @@
       font-weight: 700;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .button:hover { transform: translateY(-2px); opacity: 0.95; }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
     .section {
       padding: 5rem 1.5rem;
     }
+
     .container {
       width: min(1100px, 100%);
       margin: 0 auto;
     }
+
     .panel {
       background: white;
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
     }
+
     .split-image {
       width: 100%;
       height: 320px;
       object-fit: cover;
       display: block;
+      background: #dfe7df;
     }
+
     .content {
       padding: 2rem;
     }
+
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: 0.15em;
@@ -82,22 +108,26 @@
       font-weight: 700;
       margin-bottom: 0.75rem;
     }
+
     h2 {
       font-size: clamp(1.9rem, 4vw, 3rem);
       margin: 0 0 1rem;
       color: #16301d;
     }
+
     .lead {
       font-size: 1.08rem;
       color: #52606d;
       margin-bottom: 0;
     }
+
     .features-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
       margin-top: 2rem;
     }
+
     .feature-card {
       background: #ffffff;
       border-radius: 20px;
@@ -105,11 +135,13 @@
       box-shadow: 0 10px 25px rgba(16, 24, 40, 0.06);
       border-top: 5px solid #7fc97f;
     }
+
     .feature-card h3 {
       margin-top: 0;
       margin-bottom: 0.65rem;
       color: #16301d;
     }
+
     .summary-box {
       background: linear-gradient(135deg, #16301d, #2f5d41);
       color: white;
@@ -117,21 +149,38 @@
       padding: 2rem;
       box-shadow: 0 10px 30px rgba(16, 24, 40, 0.12);
     }
-    .summary-box p:last-child { margin-bottom: 0; }
+
+    .summary-box p:last-child {
+      margin-bottom: 0;
+    }
+
     .footer {
       text-align: center;
       padding: 2.5rem 1.5rem 4rem;
       color: #52606d;
     }
+
     .footer a {
       color: #2f6f4f;
       font-weight: 700;
     }
-    .section-alt { background: #eef4ef; }
+
+    .section-alt {
+      background: #eef4ef;
+    }
+
     @media (max-width: 768px) {
-      .features-grid { grid-template-columns: 1fr; }
-      .content { padding: 1.4rem; }
-      .split-image { height: 240px; }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content {
+        padding: 1.4rem;
+      }
+
+      .split-image {
+        height: 240px;
+      }
     }
   </style>
 </head>
@@ -147,11 +196,19 @@
 
   <section class="section" id="one">
     <div class="container panel">
-      <img class="split-image" src="images/pic01.jpg" alt="Redesign concept for Montefiore Square" />
+      <img
+        class="split-image"
+        src="images/vibrant-park.png"
+        alt="Redesign concept for Montefiore Square"
+      />
       <div class="content">
         <div class="eyebrow">What I did</div>
         <h2>Why this redesign works</h2>
-        <p class="lead">I increased tree planting throughout the plaza, added larger integrated planting beds, and replaced sections of hardscape with permeable paving. These changes create more shade, reduce urban heat, improve stormwater handling, and make the space more comfortable and inviting for daily use.</p>
+        <p class="lead">
+          I increased tree planting throughout the plaza, added larger integrated planting beds,
+          and replaced sections of hardscape with permeable paving. These changes create more shade,
+          reduce urban heat, improve stormwater handling, and make the space more comfortable and inviting for daily use.
+        </p>
       </div>
     </div>
   </section>
@@ -165,14 +222,17 @@
           <h3>More canopy and shade</h3>
           <p>Mature, shade-providing trees cool the plaza, improve air quality, and make the area much more comfortable in warm weather.</p>
         </article>
+
         <article class="feature-card">
           <h3>Permeable paving</h3>
           <p>Water can move through the ground more naturally, reducing runoff and supporting a more resilient urban landscape.</p>
         </article>
+
         <article class="feature-card">
           <h3>Community art screen</h3>
           <p>A digital display powered by solar energy creates a place for public art, culture, and local storytelling.</p>
         </article>
+
         <article class="feature-card">
           <h3>Flexible social seating</h3>
           <p>Covered seating, vendor areas, and interactive structures support gathering, rest, play, and local economic activity.</p>
@@ -185,7 +245,11 @@
     <div class="container summary-box">
       <div class="eyebrow" style="color:#b7efb7;">Summary</div>
       <h2 style="color:white;">A greener public space for daily life</h2>
-      <p>The redesigned plaza transforms an underused hardscape into a shaded, sustainable, and multi-functional community destination. By combining environmental improvements with seating, small-business support, and cultural elements, the space becomes more useful, healthier, and more welcoming for residents and visitors.</p>
+      <p>
+        The redesigned plaza transforms an underused hardscape into a shaded, sustainable, and multi-functional community destination.
+        By combining environmental improvements with seating, small-business support, and cultural elements,
+        the space becomes more useful, healthier, and more welcoming for residents and visitors.
+      </p>
     </div>
   </section>
 
