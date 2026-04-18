@@ -11,7 +11,7 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.65;
+      line-height: 1.7;
       color: #1f2933;
       background: #f5f7f7;
     }
@@ -26,11 +26,7 @@
       text-align: center;
       padding: 4rem 1.5rem;
       color: white;
-
-      /* fallback color if image is missing */
       background-color: #244b35;
-
-      /* your original hero look */
       background-image:
         linear-gradient(rgba(27, 55, 39, 0.55), rgba(27, 55, 39, 0.55)),
         url("images/bg.jpg");
@@ -54,7 +50,7 @@
       font-size: 1.15rem;
       max-width: 720px;
       margin: 0 auto 2rem;
-      color: rgba(255,255,255,0.9);
+      color: rgba(255,255,255,0.92);
     }
 
     .button {
@@ -65,6 +61,7 @@
       color: #16301d;
       font-weight: 700;
       transition: transform 0.2s ease, opacity 0.2s ease;
+      margin: 0.3rem;
     }
 
     .button:hover {
@@ -74,6 +71,10 @@
 
     .section {
       padding: 5rem 1.5rem;
+    }
+
+    .section-alt {
+      background: #eef4ef;
     }
 
     .container {
@@ -115,20 +116,38 @@
       color: #16301d;
     }
 
+    h3 {
+      color: #16301d;
+      margin-top: 0;
+    }
+
     .lead {
       font-size: 1.08rem;
       color: #52606d;
       margin-bottom: 0;
     }
 
-    .features-grid {
+    .text-block {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
+    }
+
+    .text-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .features-grid,
+    .cards-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
       margin-top: 2rem;
     }
 
-    .feature-card {
+    .feature-card,
+    .info-card {
       background: #ffffff;
       border-radius: 20px;
       padding: 1.5rem;
@@ -136,10 +155,9 @@
       border-top: 5px solid #7fc97f;
     }
 
-    .feature-card h3 {
-      margin-top: 0;
+    .feature-card h3,
+    .info-card h3 {
       margin-bottom: 0.65rem;
-      color: #16301d;
     }
 
     .summary-box {
@@ -154,6 +172,38 @@
       margin-bottom: 0;
     }
 
+    .summary-box h2 {
+      color: white;
+    }
+
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(16, 24, 40, 0.06);
+    }
+
+    .budget-table th,
+    .budget-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+
+    .budget-table th {
+      background: #dff0e3;
+      color: #16301d;
+    }
+
+    .budget-table tr:last-child td {
+      border-bottom: none;
+      font-weight: bold;
+    }
+
     .footer {
       text-align: center;
       padding: 2.5rem 1.5rem 4rem;
@@ -165,21 +215,50 @@
       font-weight: 700;
     }
 
-    .section-alt {
-      background: #eef4ef;
-    }
-
     @media (max-width: 768px) {
-      .features-grid {
+      .features-grid,
+      .cards-grid {
         grid-template-columns: 1fr;
       }
 
-      .content {
+      .content,
+      .text-block,
+      .summary-box {
         padding: 1.4rem;
       }
 
       .split-image {
         height: 240px;
+      }
+
+      .budget-table,
+      .budget-table thead,
+      .budget-table tbody,
+      .budget-table th,
+      .budget-table td,
+      .budget-table tr {
+        display: block;
+        width: 100%;
+      }
+
+      .budget-table thead {
+        display: none;
+      }
+
+      .budget-table tr {
+        margin-bottom: 1rem;
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(16, 24, 40, 0.05);
+      }
+
+      .budget-table td {
+        border-bottom: 1px solid #eef2f4;
+      }
+
+      .budget-table td:last-child {
+        border-bottom: none;
       }
     }
   </style>
@@ -189,8 +268,12 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <h1>Redesigning Montefiore Square</h1>
-      <p>A new look for a greener, more enjoyable environment that improves comfort, sustainability, and community use.</p>
+      <p>
+        A greener, more comfortable, and more culturally active public space that improves shade,
+        stormwater management, and everyday community use in Hamilton Heights.
+      </p>
       <a href="#one" class="button">See the redesign</a>
+      <a href="#problem" class="button">Read the proposal</a>
     </div>
   </section>
 
@@ -202,14 +285,87 @@
         alt="Redesign concept for Montefiore Square"
       />
       <div class="content">
-        <div class="eyebrow">What I did</div>
+        <div class="eyebrow">Overview</div>
         <h2>Why this redesign works</h2>
         <p class="lead">
-          I increased tree planting throughout the plaza, added larger integrated planting beds,
-          and replaced sections of hardscape with permeable paving. These changes create more shade,
-          reduce urban heat, improve stormwater handling, and make the space more comfortable and inviting for daily use.
+          My redesign improves Montefiore Square by combining environmental upgrades with cultural
+          programming. I added more shade, permeable paving, planted areas, flexible seating, and
+          a solar-powered digital art screen. Together, these interventions make the plaza cooler,
+          more sustainable, more welcoming, and more reflective of the neighborhood around it.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="problem">
+    <div class="container">
+      <div class="eyebrow">Problem section</div>
+      <h2>What problems does the plaza have now?</h2>
+      <div class="cards-grid">
+        <article class="info-card">
+          <h3>Lack of shade and heat exposure</h3>
+          <p>
+            Montefiore Square currently has limited shade, especially during warmer months when the
+            space should be most useful. Although trees were planted in the recent renovation, they
+            are still young and do not yet provide enough canopy. This makes parts of the plaza feel
+            hot, exposed, and uncomfortable for daily use.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Stormwater runoff</h3>
+          <p>
+            Much of the plaza is made of hard, impervious surfaces that do not absorb rainwater.
+            Instead, water runs off into the stormwater system, which contributes to flooding and
+            environmental stress. A redesign should help the site manage water more naturally and
+            sustainably.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Missing cultural identity</h3>
+          <p>
+            Even though the surrounding neighborhood has a strong artistic and historical identity,
+            the plaza itself does not reflect that character. There is no permanent public art,
+            interactive feature, or community storytelling element that connects the space to local
+            culture and history.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Limited reasons to stay</h3>
+          <p>
+            The site works mainly as a pass-through space instead of a destination. It needs more
+            seating, more visual interest, and more flexible uses so people feel encouraged to sit,
+            gather, rest, and participate in community life.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="site-analysis">
+    <div class="container text-block">
+      <div class="eyebrow">Site analysis</div>
+      <h2>Understanding the location</h2>
+      <p>
+        Montefiore Square is a triangular plaza located at Broadway, West 138th Street, and
+        Hamilton Place in Hamilton Heights. It sits near the 137th Street–City College subway stop
+        and is surrounded by a dense residential and commercial neighborhood. Because of its shape,
+        the plaza has different edges and different pedestrian flows, which makes it an interesting
+        site for redesign.
+      </p>
+      <p>
+        The surrounding community has a strong cultural identity and a rich history connected to
+        Harlem, public art, education, and migration. This means the plaza should not only function
+        as a green public space, but also reflect the character of the people who live and move
+        through it every day.
+      </p>
+      <p>
+        In my redesign, I treated the site as both an environmental and social space. I focused on
+        how people move through it, where shade is needed most, and where a cultural feature like a
+        digital display could create the strongest visual and community impact.
+      </p>
     </div>
   </section>
 
@@ -220,34 +376,190 @@
       <div class="features-grid">
         <article class="feature-card">
           <h3>More canopy and shade</h3>
-          <p>Mature, shade-providing trees cool the plaza, improve air quality, and make the area much more comfortable in warm weather.</p>
+          <p>
+            I added more mature, shade-providing trees and planting zones to reduce heat, improve
+            comfort, and make the plaza more pleasant during warmer seasons.
+          </p>
         </article>
 
         <article class="feature-card">
           <h3>Permeable paving</h3>
-          <p>Water can move through the ground more naturally, reducing runoff and supporting a more resilient urban landscape.</p>
+          <p>
+            Replacing sections of hardscape with permeable paving allows rainwater to move through
+            the ground more naturally, reducing runoff and improving environmental performance.
+          </p>
         </article>
 
         <article class="feature-card">
           <h3>Community art screen</h3>
-          <p>A digital display powered by solar energy creates a place for public art, culture, and local storytelling.</p>
+          <p>
+            A solar-powered digital display creates a space for public art, local history, event
+            announcements, and community storytelling.
+          </p>
         </article>
 
         <article class="feature-card">
           <h3>Flexible social seating</h3>
-          <p>Covered seating, vendor areas, and interactive structures support gathering, rest, play, and local economic activity.</p>
+          <p>
+            Covered seating, vendor-friendly areas, and moveable furniture make the plaza more
+            adaptable for resting, gathering, and small-scale local activity.
+          </p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-screen">
+    <div class="container text-block">
+      <div class="eyebrow">Featured design idea</div>
+      <h2>The solar-powered digital art screen</h2>
+      <p>
+        The most distinctive part of my redesign is the solar-powered digital art screen. This
+        feature would display rotating work by local artists, neighborhood history, cultural
+        storytelling, and information about events happening nearby. Instead of treating the plaza
+        only as a place to pass through, this element would make it a place to stop, look, and
+        engage.
+      </p>
+      <p>
+        I chose this idea because it connects technology, sustainability, and culture in one
+        feature. The screen would be powered by solar energy, which supports the environmental goals
+        of the redesign while also making the installation feel innovative and appropriate for an AI
+        and design-focused class project.
+      </p>
+      <p>
+        This idea also fits the neighborhood. Hamilton Heights and Harlem have deep artistic and
+        cultural traditions, so the display could highlight local artists, school partnerships,
+        historical content, and community submissions. In a real project, this feature could be
+        managed through a partnership with community organizations, local schools, or arts groups
+        that help select and rotate the content.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="design-options">
+    <div class="container">
+      <div class="eyebrow">Design options</div>
+      <h2>Alternatives I considered</h2>
+      <div class="cards-grid">
+        <article class="info-card">
+          <h3>Option A: Environment first</h3>
+          <p>
+            This option focused mostly on planting, shade, and stormwater management. It would
+            improve comfort and sustainability, but it would not do enough to create a strong visual
+            or cultural identity for the plaza.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Option B: Culture first</h3>
+          <p>
+            This option focused more heavily on programming and digital features, with a larger
+            display and more event infrastructure. While it would make the plaza more active, it
+            would not address environmental issues as strongly.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Option C: Integrated design</h3>
+          <p>
+            I selected this option because it combines the strongest parts of both approaches. It
+            improves shade, planting, and paving while also adding the digital display and flexible
+            seating. This balance makes the redesign more realistic and more complete.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ai-reflection">
+    <div class="container text-block">
+      <div class="eyebrow">AI reflection</div>
+      <h2>How I used AI in this project</h2>
+      <p>
+        I used AI tools to help me visualize design ideas and develop the presentation of my
+        proposal. AI was useful in quickly generating an early concept image and helping me think
+        through different possible directions for the redesign.
+      </p>
+      <p>
+        At the same time, AI did not make the important design decisions for me. Some generated
+        ideas were too generic and did not reflect the specific identity of Montefiore Square or the
+        neighborhood around it. I had to decide which ideas were meaningful and which ones did not
+        fit the site.
+      </p>
+      <p>
+        My own judgment was especially important in choosing to focus on the solar-powered digital
+        art screen, connecting the redesign to local culture, and combining social, environmental,
+        and technological elements into one proposal. AI helped me start the process, but I shaped
+        the final direction of the project.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="budget">
+    <div class="container">
+      <div class="eyebrow">Budget</div>
+      <h2>Conceptual budget estimate</h2>
+      <table class="budget-table">
+        <thead>
+          <tr>
+            <th>Intervention</th>
+            <th>Estimated Cost</th>
+            <th>Possible Funding Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Canopy trees and planting improvements</td>
+            <td>$65,000 – $100,000</td>
+            <td>NYC Parks and environmental grants</td>
+          </tr>
+          <tr>
+            <td>Permeable paving</td>
+            <td>$70,000 – $110,000</td>
+            <td>Green infrastructure funding</td>
+          </tr>
+          <tr>
+            <td>Bioswale planting beds</td>
+            <td>$35,000 – $55,000</td>
+            <td>Stormwater and sustainability grants</td>
+          </tr>
+          <tr>
+            <td>Solar-powered digital display</td>
+            <td>$45,000 – $80,000</td>
+            <td>Public art and cultural grants</td>
+          </tr>
+          <tr>
+            <td>Flexible seating and tables</td>
+            <td>$15,000 – $25,000</td>
+            <td>Parks or community partnership support</td>
+          </tr>
+          <tr>
+            <td>Vendor kiosk infrastructure</td>
+            <td>$20,000 – $35,000</td>
+            <td>Small business support programs</td>
+          </tr>
+          <tr>
+            <td>Total conceptual range</td>
+            <td>$250,000 – $405,000</td>
+            <td>Combination of city, cultural, and environmental funding</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
   <section class="section" id="three">
     <div class="container summary-box">
       <div class="eyebrow" style="color:#b7efb7;">Revisions</div>
-      <h2 style="color:white;">Taking an extra step</h2>
+      <h2>How I improved the project</h2>
       <p>
-       In revising my project, I focused on expanding and strengthening the areas that were previously underdeveloped. I added a detailed problem section to clearly explain the issues with Montefiore Square, along with a site analysis to show my understanding of the location and its context. I significantly developed my solar-powered digital art screen idea by explaining how it would function, why it fits the neighborhood, and who could help manage it. I also included new sections such as design alternatives, an AI reflection, and a budget to make the proposal more realistic and complete. In addition, I improved the overall depth of my writing and added more supporting visuals. These changes allowed me to turn my original concept into a more thorough, thoughtful, and fully realized website that meets the assignment requirements.
-
+        In revising my project, I focused on expanding the parts of the proposal that were too brief
+        in the original version. I added a full problem section, a site analysis, design options, an
+        AI reflection, and a budget so the project would feel more complete and realistic. I also
+        developed my strongest idea—the solar-powered digital art screen—in much more detail by
+        explaining its purpose, function, and relevance to the community. These revisions helped me
+        turn my original concept into a stronger, more thoughtful website that better meets the
+        assignment requirements.
       </p>
     </div>
   </section>
